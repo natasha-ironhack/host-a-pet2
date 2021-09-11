@@ -1,0 +1,23 @@
+<div>
+    <h2>Login Page</h2>
+
+    <form action="/auth/login" method="POST">
+
+        <label for="email">Email:</label>
+        {{!-- <input type="email" name="email" required>--}}
+        <input type="email" name="email" autocomplete="off">
+
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+
+        <br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+
+    <p style="color: blue">{{errorMessage}}</p>
+</div>

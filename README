@@ -1,0 +1,129 @@
+Project Name
+Description
+Our project is a small pet host site. It will allow small kids and young families the opportunity to temporarily host a small pet (e.g., guinea pigs, rats, mice, etc.), with the option to buy them at the end of their contract if they end up falling in love with the pet.
+
+-- USER STORIES --
+404 - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
+
+homepage - As a user I want to be able to access the homepage so that I see what the app is about and login and signup
+
+login / sign up - As a user I want to sign up / login on the webpage so that I can see all the pets that I fave'd and be able to reserve/book a host pet, and arrange a visit.
+
+User-profile - Here I can see my details, all the pets that I fave'd, and my reservations and visit schedule.
+(logout - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account)
+
+about page - As a user I want to see information about the company / website.
+
+Pet page - As a user I want to see all the pets available so that I can choose which ones I want to rent/reserve. When I click on the reserve button, it will lead me to the login page.
+
+Select pet form - As a user I want to be able to filter out via a dropdown menu the types of pets I want to see on the pet page.
+
+(success - As a user I want to see a success page that details the confirmation of the pet I just rented. Also, to go back to the home page when I'm done.)
+
+NOTE: As administrator of website, I need permission to fulfill CRUD operations regarding the pet page div.
+need to create a form where admin adds pet to store. need 1 route that edits the profile of the pet.
+
+-- BACKLOG --
+List of other features outside of the MVPs scope
+
+User profile:
+Favorite pets list
+(reservations)
+
+(Geo Location:
+Maybe include a map for location of the farm / company)
+
+Homepage:
+(Filter part on the search (leads to pets page))
+
+Success page:
+button back to homepage
+
+authenticator for users
+
+-- ROUTES: --
+GET /
+renders the homepage
+
+GET /auth/login-signup
+(redirects to login-sign up page (if from homepage))
+renders the login-signup form.hbs
+
+POST /auth/login-signup
+redirects to home page after filling out:
+body:
+email
+password
+
+POST /auth/logout
+body: (empty)
+
+GET /auth/user-profile (:id?)
+renders the profile.hbs
+includes favorites section, reservation section, and details section
+
+GET /about
+renders the about.hbs
+
+GET /pets
+renders the pets.hbs
+includes booking/reservation button on page
+includes dropdown menu
+includes reservation/visit date
+
+POST /pets
+redirects from pets.hbs to success.page.hbs
+
+GET /pets/create
+renders individual pets.hbs page
+
+POST /pets/create
+lets you create the pets.
+
+GET /pets/edit
+render pets
+
+POST /pets/edit
+Edit pets
+
+GET /pets/delete
+
+POST /pets/delete
+updates pet page. takes pet off
+
+GET /success
+renders the success.hbs
+
+(GET /pet/reservation
+BACKLOG) (POST too)
+
+-- MODELS --
+User Model:
+name: String
+email: {type:String, required: true, unique: true}
+password: String
+user photoUrl: String
+
+Pet Model:
+name: String
+breed: String
+age: Number
+photoUrl: String
+description: String
+status: String
+Hosted By: (create relation to user model)
+
+-- LINKS --
+Trello
+Link to your trello board or picture of your physical board
+
+Git
+Repository Link:
+https://github.com/natasha-ironhack/host-a-pet
+
+Deploy Link:
+
+Slides
+(The url to your presentation slides)
+
+Slides Link
