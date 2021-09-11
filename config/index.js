@@ -51,7 +51,7 @@ module.exports = (app) => {
         maxAge: 60 * 60 * 24 * 15,
       },
       store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/basic-auth",
+        mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/host-a-pet",
         ttl: 60 * 60 * 24,
       }),
     })

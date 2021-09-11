@@ -14,7 +14,7 @@ router.get("/signup", (req, res, next) => {
 
 router.post("/signup", (req, res, next) => {
   const { username, email, password } = req.body;
-  console.log("The form data: ", req.body);
+  // console.log("The form data: ", req.body);
 
   if (!email || !password || !username) {
     res.render("auth/signup.hbs", {
@@ -35,12 +35,12 @@ router.post("/signup", (req, res, next) => {
         // passwordHash => this is the key from the User model
         //     ^
         //     |            |--> this is placeholder (how we named returning value from the previous method (.hash()))
-        passwordHash: hashedPassword,
+        password: hashedPassword,
       });
     })
     .then((userFromDB) => {
       console.log("Newly created user is: ", userFromDB);
-      res.redirect("users/user-profile");
+      res.redirect("/auth/login");
     })
     .catch((error) => {
       // copy the following if-else statement
@@ -66,7 +66,7 @@ router.post("/signup", (req, res, next) => {
 
 // the imports, get and post route remain untouched for now
 router.get("user-profile.hbs", (req, res) =>
-  res.render("users/user-profile", { userInSession: req.session.currentUser })
+  res.render("user-profile", { userInSession: req.session.currentUser })
 );
 
 router.get("/login", (req, res, next) => {
@@ -84,23 +84,29 @@ router.post("/login", (req, res, next) => {
     return;
   }
 
-  User.findOne({ email })
+  UserModel.findOne({ email })
     .then((user) => {
+      console.log("inside find model", password, user.password);
       if (!user) {
         res.render("auth/login", {
           errorMessage: "This email is not registered. Try with another email.",
         });
         return;
-      } else if (bcryptjs.compareSync(password, user.passwordHash)) {
+      } else if (bcryptjs.compareSync(password, user.password)) {
+        // password not passwordHash?
         res.render("users/user-profile", { user });
         req.session.currentUser = user;
-        res.redirect('/userProfile');
+        res.redirect("/users/user-profile");
       } else {
-        res.render('auth/login', { errorMessage: 'Incorrect password.' });
-      } 
+        res.render("auth/login", { errorMessage: "Incorrect password." });
+      }
     })
     .catch((error) => next(error));
+});
 
+router.get("/logout", (req, res, next) => {
+  req.session.destroy(); // this removes the active session "req.session.loggedInUser" and also removes stored session from DB.
+  res.redirect("/auth/login");
 });
 
 module.exports = router;
