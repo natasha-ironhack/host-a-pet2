@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Pet = require("../models/Pets.model");
 
-router.get("/pets", (req, res, next) => {
+router.get("/", (req, res, next) => {
   Pet.find()
     .then((pets) => {
       console.log("All the pets:", pets);
@@ -13,27 +13,28 @@ router.get("/pets", (req, res, next) => {
 });
 
 // needs auth to see
-router.get("/pets/create", (req, res) => {
+router.get("/create", (req, res) => {
   res.render("pets/create");
 });
 
 // hostedby is object id, how to deconstruct
 
-router.post("/pets/create", (req, res) => {
+router.post("/create", (req, res) => {
   console.log(req.body);
-  const { name, breed, age, photoUrl, description, status, hostedby } =
-    req.body;
-  Pet.create({ name, breed, age, photoUrl, description, status, hostedby })
+  //should be photo not photoUrl cuz name (in the const { } and create)
+  const { name, breed, age, description, status } = req.body;
+  Pet.create({ name, breed, age, description, status })
     .then((pet) => {
       console.log("Created pet:", pet);
-      res.redirect("/pets-list");
+      //not redirecting to pets-list
+      res.redirect("pets/pets-list");
     })
     .catch((err) => {
       console.log("Error creating pet", err);
     });
 });
 
-router.get("/pets/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   const { id } = req.params;
   Pet.findById(id)
     .then((pet) => {
@@ -45,7 +46,7 @@ router.get("/pets/:id", (req, res, next) => {
     });
 });
 
-router.get("/pets/:id/edit", (req, res) => {
+router.get("/:id/edit", (req, res) => {
   const { id } = req.params;
   Pet.findById(id)
     .then((pet) => {
@@ -57,9 +58,10 @@ router.get("/pets/:id/edit", (req, res) => {
     });
 });
 
-router.post("/books/:id/edit", (req, res) => {
+router.post("/:id/edit", (req, res) => {
   const { id } = req.params;
-  const { title, author, description, rating } = req.body;
+  const { name, breed, age, photoUrl, description, status, hostedby } =
+    req.body;
   Pet.findByIdAndUpdate(
     id,
     { name, breed, age, photoUrl, description, status, hostedby },
@@ -74,7 +76,7 @@ router.post("/books/:id/edit", (req, res) => {
     });
 });
 
-router.post("/pets/:id/delete", (req, res) => {
+router.post("/:id/delete", (req, res) => {
   const { id } = req.params;
   Pet.findByIdAndDelete(id)
     .then(() => {

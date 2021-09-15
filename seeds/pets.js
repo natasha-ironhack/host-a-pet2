@@ -3,16 +3,15 @@ const Pet = require("../models/Pets.model");
 
 require("../db");
 
-// not showing info
 const pets = [
   {
-    Name: "Cocoa (calico) and Pippy (beige)",
-    Breed: "guinea pig",
-    Age: 1,
-    photoUrl: "https://ibb.co/rvbg2bg",
-    Description:
+    name: "Cocoa (calico) and Pippy (beige)",
+    breed: "guinea pig",
+    age: 1,
+    photoUrl: "https://i.ibb.co/jHVqkVd/IMG-4614-copy.jpg",
+    description:
       "Two sisters that love pets and attention. Cocoa is a shy and reserved lady, but gets along famously with her energetic, social sister. Both are always up for vitamin C, romaine lettuce, and morning jogs around their cage. Looking for a loving owner that will give them plenty of attention and care.",
-    Status: "Rented",
+    status: "Rented",
   },
 ];
 

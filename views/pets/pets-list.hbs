@@ -1,0 +1,49 @@
+<!--NATASHA: changes made Sept. 15. Original copy of pets-list.hbs saved in notebook and at bottom of page here-->
+<h1>Welcome to our Pet's Page</h1>
+<a href="/pets/create">Create a pet!</a>
+{{#each pets}}
+
+{{!-- @index, @key, @first (first iteration of loop), @last--}}
+    {{!--<img src="{{this.image_url}}"--}}
+
+{{!--{{> pets-listPartials this}}---}}
+
+{{!--Method above not working for now. Commented out for now--}}
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+        <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Name: {{this.name}}</h5>
+                <p class="card-text">Breed: {{this.breed}}</p>
+                <p class="card-text">Age: {{this.age}}</p>
+                <p class="card-text">Description: {{this.description}}</p>
+                <p class="card-text">Status: {{this.status}}</p>
+                <a href="/pets/{{this._id}}">View More</a>
+                <a href="/pets/{{this._id}}/edit">Edit</a>
+                <form action='/pets/{{this._id}}/delete' method='post'>
+                    <button type='submit'>Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{{!--NATASHA: ORIGINAL CODE BEFORE SEPT. 15 BELOW HERE. Only change made is adding "Name:" etc. --}}
+    {{!-- <div>
+    <h3>Name: {{this.name}}</h3>
+    <p>Breed: {{this.breed}}</p>
+    <p>Age: {{this.age}}</p>
+    <img src="{{this.photoUrl}}" alt="{{this.name}}"/>
+    <p>Description: {{this.description}}</p>
+    <p>Status: {{this.status}}</p>
+    <a href="/pets/{{this._id}}">View More</a>
+    <a href="/pets/{{this._id}}/edit">Edit</a>
+    <form action='/pets/{{this._id}}/delete' method='post'>
+        <button type='submit'>Delete</button>
+    </form>
+</div> --}}
+
+{{/each}}
+

@@ -42,30 +42,30 @@ button back to homepage
 authenticator for users
 
 -- ROUTES: --
-GET /
+GET /   DONE
 renders the homepage
 
-GET /auth/login-signup
+GET /auth/login-signup   DONE
 (redirects to login-sign up page (if from homepage))
 renders the login-signup form.hbs
 
-POST /auth/login-signup
+POST /auth/login-signup     DONE
 redirects to home page after filling out:
 body:
 email
 password
 
-POST /auth/logout
+POST /auth/logout 
 body: (empty)
 
-GET /auth/user-profile (:id?)
+GET /auth/user-profile (:id?)   SEMI-DONE (need view)
 renders the profile.hbs
 includes favorites section, reservation section, and details section
 
-GET /about
+GET /about   
 renders the about.hbs
 
-GET /pets
+GET /pets     SEMI-DONE (routes done, not views)
 renders the pets.hbs
 includes booking/reservation button on page
 includes dropdown menu
