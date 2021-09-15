@@ -74,10 +74,10 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", (req, res, next) => {
-  console.log("SESSION =====> ", req.session);
+  //console.log("SESSION =====> ", req.session);
   const { email, password } = req.body;
 
-  if (email === "" || password === "") {
+  if (!email || !password) {
     res.render("auth/login", {
       errorMessage: "Please enter both your email and password to login.",
     });
@@ -86,7 +86,7 @@ router.post("/login", (req, res, next) => {
 
   UserModel.findOne({ email })
     .then((user) => {
-      console.log("inside find model", password, user.password);
+      //console.log("inside find model", password, user.password);
       if (!user) {
         res.render("auth/login", {
           errorMessage: "This email is not registered. Try with another email.",
@@ -95,6 +95,7 @@ router.post("/login", (req, res, next) => {
       } else if (bcryptjs.compareSync(password, user.password)) {
         // password not passwordHash?
         req.session.loggedInUser = user;
+        //req.app.locals.isLoggedIn = true;
         res.redirect("/users/profile");
       } else {
         res.render("auth/login", { errorMessage: "Incorrect password." });
@@ -103,8 +104,9 @@ router.post("/login", (req, res, next) => {
     .catch((error) => next(error));
 });
 
-router.get("/logout", (req, res, next) => {
+router.get("/", (req, res, next) => {
   req.session.destroy(); // this removes the active session "req.session.loggedInUser" and also removes stored session from DB.
+  //Problem: stored session still on DB
   res.redirect("/auth/login");
 });
 
