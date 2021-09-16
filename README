@@ -62,10 +62,10 @@ GET /auth/user-profile (:id?)   SEMI-DONE (need view)
 renders the profile.hbs
 includes favorites section, reservation section, and details section
 
-GET /about   
+GET /about     DONE
 renders the about.hbs
 
-GET /pets     SEMI-DONE (routes done, not views)
+GET /pets     DONE
 renders the pets.hbs
 includes booking/reservation button on page
 includes dropdown menu
@@ -74,21 +74,21 @@ includes reservation/visit date
 POST /pets
 redirects from pets.hbs to success.page.hbs
 
-GET /pets/create
+GET /pets/create     DONE
 renders individual pets.hbs page
 
-POST /pets/create
+POST /pets/create     DONE
 lets you create the pets.
 
-GET /pets/edit
+GET /pets/edit    DONE
 render pets
 
-POST /pets/edit
+POST /pets/edit       DONE
 Edit pets
 
-GET /pets/delete
+GET /pets/delete      DONE
 
-POST /pets/delete
+POST /pets/delete      DONE
 updates pet page. takes pet off
 
 GET /success

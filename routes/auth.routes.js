@@ -96,7 +96,8 @@ router.post("/login", (req, res, next) => {
         // password not passwordHash?
         req.session.loggedInUser = user;
         //req.app.locals.isLoggedIn = true;
-        res.redirect("/users/profile");
+        res.redirect("/profile");
+        //above changed to /profile b/c that's what it is in app.js
       } else {
         res.render("auth/login", { errorMessage: "Incorrect password." });
       }
@@ -104,7 +105,7 @@ router.post("/login", (req, res, next) => {
     .catch((error) => next(error));
 });
 
-router.get("/", (req, res, next) => {
+router.post("/logout", (req, res, next) => {
   req.session.destroy(); // this removes the active session "req.session.loggedInUser" and also removes stored session from DB.
   //Problem: stored session still on DB
   res.redirect("/auth/login");
