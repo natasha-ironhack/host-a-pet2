@@ -8,9 +8,15 @@
 <p>Description: {{pet.description}}</p>
 <p>Status: {{pet.status}}</p>
 
+{{!--
 <form action="/pets/{{pet.id}}/success" method="POST">
   <label for="confirm">I confirm I want to host this pet</label>
   <input type="text" name="confirm" />
 
+  <button type="submit">Confirm</button>
+</form>--}}
+
+<form action="/pets/{{pet.id}}/success" method="POST">
+  <label for="confirm">I confirm I want to host this pet:</label>
   <button type="submit">Confirm</button>
 </form>

@@ -76,6 +76,31 @@ router.post("/:id/edit", (req, res) => {
     });
 });
 
+//NATASHA: Host route added Sept. 17
+router.get("/:id/host", (req, res) => {
+  const { id } = req.params;
+  Pet.findById(id)
+    .then((pet) => {
+      console.log("Here's your reservation page:", pet);
+      res.render("pets/host", { pet });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+//NATASHA: Added success route Sept. 17th
+router.post("/:id/success", (req, res) => {
+  const { id } = req.params;
+  Pet.findById(id)
+    .then((pet) => {
+      res.render("pets/success", { pet });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 router.post("/:id/delete", (req, res) => {
   const { id } = req.params;
   Pet.findByIdAndDelete(id)

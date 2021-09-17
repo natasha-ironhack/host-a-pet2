@@ -42,59 +42,59 @@ button back to homepage
 authenticator for users
 
 -- ROUTES: --
-GET /   DONE
+GET / DONE
 renders the homepage
 
-GET /auth/login-signup   DONE
+GET /auth/login-signup DONE
 (redirects to login-sign up page (if from homepage))
 renders the login-signup form.hbs
 
-POST /auth/login-signup     DONE
+POST /auth/login-signup DONE
 redirects to home page after filling out:
 body:
 email
 password
 
-POST /auth/logout 
+POST /auth/logout
 body: (empty)
 
-GET /auth/user-profile (:id?)   SEMI-DONE (need view)
+GET /auth/user-profile (:id?) DONE (need view)
 renders the profile.hbs
-includes favorites section, reservation section, and details section
+includes favorites section, reservation section, and details section NOT DONE
 
-GET /about     DONE
+GET /about DONE
 renders the about.hbs
 
-GET /pets     DONE
+GET /pets DONE
 renders the pets.hbs
 includes booking/reservation button on page
 includes dropdown menu
 includes reservation/visit date
 
-POST /pets
+POST /pets DONE
 redirects from pets.hbs to success.page.hbs
 
-GET /pets/create     DONE
+GET /pets/create DONE
 renders individual pets.hbs page
 
-POST /pets/create     DONE
+POST /pets/create DONE
 lets you create the pets.
 
-GET /pets/edit    DONE
+GET /pets/edit DONE
 render pets
 
-POST /pets/edit       DONE
+POST /pets/edit DONE
 Edit pets
 
-GET /pets/delete      DONE
+GET /pets/delete DONE
 
-POST /pets/delete      DONE
+POST /pets/delete DONE
 updates pet page. takes pet off
 
-GET /success
+GET /success DONE
 renders the success.hbs
 
-(GET /pet/reservation
+(GET /pet/reservation DONE
 BACKLOG) (POST too)
 
 -- MODELS --
