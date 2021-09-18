@@ -4,8 +4,6 @@ const bcryptjs = require("bcryptjs");
 const saltRounds = 10;
 const mongoose = require("mongoose");
 
-//const fileUploader = require("../middlewares/cloudinary.config");
-
 //all our routes
 //don't forget to add to app.js
 router.get("/signup", (req, res, next) => {
@@ -95,7 +93,10 @@ router.post("/login", (req, res, next) => {
       } else if (bcryptjs.compareSync(password, user.password)) {
         // password not passwordHash?
         req.session.loggedInUser = user;
-        //req.app.locals.isLoggedIn = true;
+        req.app.locals.isLoggedIn = true;
+        if (user.isAdmin) {
+          req.app.locals.isAdmin = true;
+        }
         res.redirect("/profile");
         //above changed to /profile b/c that's what it is in app.js
       } else {
@@ -108,6 +109,8 @@ router.post("/login", (req, res, next) => {
 router.post("/logout", (req, res, next) => {
   req.session.destroy(); // this removes the active session "req.session.loggedInUser" and also removes stored session from DB.
   //Problem: stored session still on DB
+  req.app.locals.isLoggedIn = false;
+  req.app.locals.isAdmin = false;
   res.redirect("/auth/login");
 });
 

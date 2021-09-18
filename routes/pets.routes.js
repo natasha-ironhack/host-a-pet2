@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const Pet = require("../models/Pets.model");
+const { isAdmin } = require("../middlewares/auth.middlewares");
+
+const fileUploader = require("../middlewares/cloudinary.config");
 
 router.get("/", (req, res, next) => {
   Pet.find()
@@ -13,21 +16,23 @@ router.get("/", (req, res, next) => {
 });
 
 // needs auth to see
-router.get("/create", (req, res) => {
+router.get("/create", isAdmin, (req, res) => {
   res.render("pets/create");
 });
 
 // hostedby is object id, how to deconstruct
 
-router.post("/create", (req, res) => {
+router.post("/create", isAdmin, fileUploader.single("photoUrl"), (req, res) => {
   console.log(req.body);
+
   //should be photo not photoUrl cuz name (in the const { } and create)
-  const { name, breed, age, description, status } = req.body;
-  Pet.create({ name, breed, age, description, status })
+  const { name, breed, age, description, available } = req.body;
+  const photoUrl = req.file.path;
+  Pet.create({ name, breed, age, photoUrl, description, available })
     .then((pet) => {
       console.log("Created pet:", pet);
       //not redirecting to pets-list
-      res.redirect("pets/pets-list");
+      res.redirect("/pets");
     })
     .catch((err) => {
       console.log("Error creating pet", err);
@@ -46,7 +51,7 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", isAdmin, (req, res) => {
   const { id } = req.params;
   Pet.findById(id)
     .then((pet) => {
@@ -58,23 +63,28 @@ router.get("/:id/edit", (req, res) => {
     });
 });
 
-router.post("/:id/edit", (req, res) => {
-  const { id } = req.params;
-  const { name, breed, age, photoUrl, description, status, hostedby } =
-    req.body;
-  Pet.findByIdAndUpdate(
-    id,
-    { name, breed, age, photoUrl, description, status, hostedby },
-    { new: true }
-  )
-    .then((pet) => {
-      console.log("Here's the pet you edited:", pet);
-      res.redirect(`/pets/${pet._id}`);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+router.post(
+  "/:id/edit",
+  isAdmin,
+  fileUploader.single("photoUrl"),
+  (req, res) => {
+    const { id } = req.params;
+    const { name, breed, age, description, available } = req.body;
+    const photoUrl = req.file.path;
+    Pet.findByIdAndUpdate(
+      id,
+      { name, breed, age, photoUrl, description, available },
+      { new: true }
+    )
+      .then((pet) => {
+        console.log("Here's the pet you edited:", pet);
+        res.redirect(`/pets/${pet._id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+);
 
 //NATASHA: Host route added Sept. 17
 router.get("/:id/host", (req, res) => {
@@ -101,7 +111,15 @@ router.post("/:id/success", (req, res) => {
     });
 });
 
-router.post("/:id/delete", (req, res) => {
+/*
+ when button clicked will need to have a route and pass as a param the ID of the pet. can say reserve/:id
+inside the route will need to:
+create the reservation object
+the reservation will have the pet id and user id
+then need to go into pet .model and change that pet to be not available
+*/
+
+router.post("/:id/delete", isAdmin, (req, res) => {
   const { id } = req.params;
   Pet.findByIdAndDelete(id)
     .then(() => {

@@ -6,7 +6,7 @@
 <p>Breed: {{pet.breed}}</p>
 <p>Age: {{pet.age}}</p>
 <p>Description: {{pet.description}}</p>
-<p>Status: {{pet.status}}</p>
+<p>Available: {{pet.available}}</p>
 
 {{!--
 <form action="/pets/{{pet.id}}/success" method="POST">
@@ -16,7 +16,8 @@
   <button type="submit">Confirm</button>
 </form>--}}
 
-<form action="/pets/{{pet.id}}/success" method="POST">
+{{!-- ORIGINAL: "/pets/{{pet.id}}/success"--}}
+<form action="/host/{{pet.id}}/reserve" method="POST">
   <label for="confirm">I confirm I want to host this pet:</label>
   <button type="submit">Confirm</button>
 </form>

@@ -12,6 +12,10 @@ const userSchema = new Schema({
   },
   password: String,
   userPhotoUrl: String,
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const User = model("User", userSchema);

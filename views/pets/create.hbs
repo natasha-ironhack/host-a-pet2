@@ -1,24 +1,26 @@
-<h3>Create a Pet Listing</h3>
+{{#if isAdmin}}
+  <h3>Create a Pet Listing</h3>
 
-<!--/get only shows the view //POST method creates-->
-<form action="/pets/create" method="POST">
+  <!--/get only shows the view //POST method creates-->
+  <form action="/pets/create" method="POST" enctype="multipart/form-data">
     <label for="name">Name</label>
-    <input type="text" name="name">
+    <input type="text" name="name" />
 
     <label for="breed">Breed</label>
-    <input type="text" name="breed">
+    <input type="text" name="breed" />
 
     <label for="age">Age</label>
-    <input type="number" name="age" min="1" max="10">
+    <input type="number" name="age" />
 
-    {{!-- <label for="photo">Photo</label>
-    <input type="file" name="photo"> --}}
+    <label for="photoUrl">Photo</label>
+    <input type="file" name="photoUrl" />
 
     <label for="description">Description</label>
-    <input type="text" name="description">
+    <input type="text" name="description" />
 
-    <label for="status">Status</label>
-    <input type="text" name="status">
+    <label for="available">Available</label>
+    <input type="text" name="available" />
 
     <button type="submit">Create</button>
-</form>
+  </form>
+{{/if}}

@@ -1,4 +1,5 @@
 const { Schema, model, isValidObjectId } = require("mongoose");
+const fileUploader = require("../middlewares/cloudinary.config");
 
 // TODO: Please make sure you edit the user model to
 //whatever makes sense in this case
@@ -10,7 +11,11 @@ const userSchema = new Schema({
   age: Number,
   photoUrl: String,
   description: String,
-  status: String,
+  //change status to available, and assign a boolean value
+  available: {
+    type: Boolean,
+    default: true
+  },
   hostedBy: {
     type: Schema.Types.ObjectId,
     ref: "User",
