@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model } = require("mongoose");
 
 const hostSchema = new Schema({
   user: {
@@ -6,11 +6,10 @@ const hostSchema = new Schema({
     ref: "User",
   },
   pet: {
-      type: Schema.Types.ObjectId,
-      ref: "Pet",
+    type: Schema.Types.ObjectId,
+    ref: "Pet",
   },
-  status: String,
-  duration: Date,
+  startDate: { type: Date, default: new Date() },
 });
 
 const Host = model("Host", hostSchema);

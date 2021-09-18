@@ -8,13 +8,22 @@ inside the route will need to:
 3. then need to go into pet .model and change that pet to be not available
 */
 
+const { findByIdAndUpdate } = require("../models/Pets.model");
+
 const router = require("express").Router();
 
 //here we need to pass in the param ID of pet
-router.get("/:id/reserve", (req, res) => {
-    //create the reservation object
-    {}
-})
+router.post("/:petId/reserve", (req, res) => {
+  const { petId } = req.params;
+  //need userId
+  const userId = req.session.loggedInUser._id;
+
+  //create the reservation object
+  //need another promise. need to edit one pet
+  HostModel.create();
+  findByIdAndUpdate(available).then((available) => {});
+  //then do , and another findByIdAndUpdate
+});
 
 /*
 router.get("/:id/host", (req, res) => {
