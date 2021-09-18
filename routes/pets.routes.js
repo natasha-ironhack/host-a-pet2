@@ -22,7 +22,6 @@ router.get("/create", isAdmin, (req, res) => {
 
 // hostedby is object id, how to deconstruct
 
-<<<<<<< HEAD
 router.post("/create", isAdmin, fileUploader.single("photoUrl"), (req, res) => {
   console.log(req.body);
 
@@ -30,15 +29,6 @@ router.post("/create", isAdmin, fileUploader.single("photoUrl"), (req, res) => {
   const { name, breed, age, description, available } = req.body;
   const photoUrl = req.file.path;
   Pet.create({ name, breed, age, photoUrl, description, available })
-=======
-//fileUploader.single("photoUrl")
-router.post("/create", (req, res) => {
-  console.log(req.body);
-  //const photoUrl = req.file.path;
-  //should be photo not photoUrl cuz name (in the const { } and create)
-  const { name, breed, age, photoUrl, description, status } = req.body;
-  Pet.create({ name, breed, age, photoUrl, description, status })
->>>>>>> cc82577ffe9941784904ff662f3bf7442193ad63
     .then((pet) => {
       console.log("Created pet:", pet);
       //not redirecting to pets-list
