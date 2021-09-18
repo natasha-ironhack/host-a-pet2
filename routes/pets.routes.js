@@ -19,11 +19,13 @@ router.get("/create", (req, res) => {
 
 // hostedby is object id, how to deconstruct
 
+//fileUploader.single("photoUrl")
 router.post("/create", (req, res) => {
   console.log(req.body);
+  //const photoUrl = req.file.path;
   //should be photo not photoUrl cuz name (in the const { } and create)
-  const { name, breed, age, description, status } = req.body;
-  Pet.create({ name, breed, age, description, status })
+  const { name, breed, age, photoUrl, description, status } = req.body;
+  Pet.create({ name, breed, age, photoUrl, description, status })
     .then((pet) => {
       console.log("Created pet:", pet);
       //not redirecting to pets-list
@@ -64,7 +66,15 @@ router.post("/:id/edit", (req, res) => {
     req.body;
   Pet.findByIdAndUpdate(
     id,
-    { name, breed, age, photoUrl, description, status, hostedby },
+    {
+      name,
+      breed,
+      age,
+      photoUrl,
+      description,
+      status,
+      hostedby,
+    },
     { new: true }
   )
     .then((pet) => {

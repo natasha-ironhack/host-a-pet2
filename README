@@ -30,16 +30,18 @@ User profile:
 Favorite pets list
 (reservations)
 
-(Geo Location:
+(Geo Location:    DONE
 Maybe include a map for location of the farm / company)
 
-Homepage:
+Homepage:      SEMI-DONE
 (Filter part on the search (leads to pets page))
 
-Success page:
+Success page:      
 button back to homepage
 
 authenticator for users
+
+email validator
 
 -- ROUTES: --
 GET / DONE
