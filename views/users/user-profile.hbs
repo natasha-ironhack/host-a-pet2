@@ -3,9 +3,12 @@
 {{#if user}}
   <h2>Welcome, {{user.username}}!</h2>
   <p>Here's your profile page!</p>
+
+  {{!--Natasha: Sept. 19, commented out button for now:
   <button>
     <a href="/user-profile">Reload the page</a>
   </button>
+  --}}
 {{else}}
   <p>You're still not logged in, sorry!</p>
 {{/if}}

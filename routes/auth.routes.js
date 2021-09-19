@@ -98,7 +98,6 @@ router.post("/login", (req, res, next) => {
           req.app.locals.isAdmin = true;
         }
         res.redirect("/profile");
-        //above changed to /profile b/c that's what it is in app.js
       } else {
         res.render("auth/login", { errorMessage: "Incorrect password." });
       }
