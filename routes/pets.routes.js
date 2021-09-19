@@ -31,7 +31,7 @@ router.post("/create", isAdmin, fileUploader.single("photoUrl"), (req, res) => {
   Pet.create({ name, breed, age, photoUrl, description, available })
     .then((pet) => {
       console.log("Created pet:", pet);
-      //not redirecting to pets-list
+      //need to redirect to pets route
       res.redirect("/pets");
     })
     .catch((err) => {
@@ -39,7 +39,8 @@ router.post("/create", isAdmin, fileUploader.single("photoUrl"), (req, res) => {
     });
 });
 
-router.get("/:id", (req, res, next) => {
+//changed from .get to .post sept. 19
+router.post("/:id", (req, res, next) => {
   const { id } = req.params;
   Pet.findById(id)
     .then((pet) => {
