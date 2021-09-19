@@ -12,7 +12,47 @@ h1 {
 }
 
 #mapid {
-  height: 300px;
-  width: 600px;
+  height: 200px;
+  width: 300px;
 }
 
+.about-title {
+  text-align: center;
+}
+
+.index-title {
+  text-align: center;
+}
+
+.index-welcome {
+  text-align: center;
+}
+
+#center {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     width: 100%;
+     text-align: center;
+     margin: 20px 10% 30px auto;
+     min-height: 200px;
+     align-items: center;
+   }
+
+.navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+
+.opening-time {
+    line-height: 2;
+}

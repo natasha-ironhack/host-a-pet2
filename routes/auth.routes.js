@@ -106,7 +106,8 @@ router.post("/login", (req, res, next) => {
     .catch((error) => next(error));
 });
 
-router.post("/logout", (req, res, next) => {
+//NATASA: Sept. 19: Changed router.post to router.get to make new logout button work
+router.get("/logout", (req, res, next) => {
   req.session.destroy(); // this removes the active session "req.session.loggedInUser" and also removes stored session from DB.
   //Problem: stored session still on DB
   req.app.locals.isLoggedIn = false;
