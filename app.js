@@ -56,6 +56,9 @@ app.use("/profile", profileRoutes);
 const petRoutes = require("./routes/pets.routes");
 app.use("/pets", petRoutes);
 
+const hostRoutes = require("./routes/host.routes");
+app.use("/host", hostRoutes);
+
 //NATASHA: addition below made Sept. 15
 const about = require("./routes/about");
 app.use("/about", about);
