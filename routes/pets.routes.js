@@ -101,16 +101,18 @@ router.get("/:id/host", (req, res) => {
 });
 
 //NATASHA: Added success route Sept. 17th
+/*
 router.post("/:id/success", (req, res) => {
   const { id } = req.params;
   Pet.findById(id)
     .then((pet) => {
-      res.render("pets/success", { pet });
+      res.render("host/success", { pet });
     })
     .catch((err) => {
       console.log(err);
     });
 });
+*/
 
 /*
  when button clicked will need to have a route and pass as a param the ID of the pet. can say reserve/:id

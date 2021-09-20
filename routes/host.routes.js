@@ -17,11 +17,11 @@ const router = require("express").Router();
 
 router.get("/:petId/host", (req, res) => {
   const { petId } = req.params;
-  res.render(`/${petId}/host`);
+  res.render("host/host.hbs");
 });
 
 //here we need to pass in the param ID of pet
-router.post("/:petId/host", (req, res) => {
+router.post("/:petId/success", (req, res) => {
   const { petId } = req.params;
   //need userId
   const userId = req.session.loggedInUser._id;
@@ -42,7 +42,8 @@ router.post("/:petId/host", (req, res) => {
       console.log("Error linking user", err);
     })
     .then(() => {
-      res.redirect(`/:id/success`);
+      res.redirect("/host/success.hbs");
+      //host/:petId/success doesn't work
     });
 });
 //then do , and another findByIdAndUpdate
