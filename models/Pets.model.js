@@ -14,7 +14,7 @@ const userSchema = new Schema({
   //change status to available, and assign a boolean value
   available: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   hostedBy: {
     type: Schema.Types.ObjectId,

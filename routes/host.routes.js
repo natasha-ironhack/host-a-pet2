@@ -11,13 +11,20 @@ available
 */
 const PetsModel = require("../models/Pets.model");
 const UserModel = require("../models/User.model");
+const HostModel = require("../models/Host.model");
 //const { findByIdAndUpdate } = require("../models/Pets.model");
 
 const router = require("express").Router();
 
 router.get("/:petId/host", (req, res) => {
   const { petId } = req.params;
-  res.render("host/host.hbs");
+  PetsModel.findById(petId)
+    .then((pet) => {
+      res.render("host/host.hbs", { pet });
+    })
+    .catch((err) => {
+      console.log("Error loading pet reservation page", err);
+    });
 });
 
 //here we need to pass in the param ID of pet
@@ -28,7 +35,22 @@ router.post("/:petId/success", (req, res) => {
 
   //create the reservation object
   //need another promise. need to edit one pet
-  HostModel.create();
+  HostModel.create({ user: userId, pet: petId })
+    .then(() => {
+      return PetsModel.findByIdAndUpdate(
+        petId,
+        { available: false },
+        { new: true }
+      );
+    })
+    .then(() => {
+      res.redirect("/profile");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  /*
   findByIdAndUpdate(petId, { available: false }, { new: true })
     .then((pet) => {
       console.log("Availability updated");
@@ -42,9 +64,10 @@ router.post("/:petId/success", (req, res) => {
       console.log("Error linking user", err);
     })
     .then(() => {
-      res.redirect("/host/success.hbs");
+      res.redirect("/host/:petId/success.hbs");
       //host/:petId/success doesn't work
     });
+    */
 });
 //then do , and another findByIdAndUpdate
 

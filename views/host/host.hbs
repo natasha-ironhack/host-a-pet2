@@ -2,11 +2,11 @@
 
 <h3>Nearly there!</h3>
 
-<p>Name: {{pet.name}}</p>
-<p>Breed: {{pet.breed}}</p>
-<p>Age: {{pet.age}}</p>
-<p>Description: {{pet.description}}</p>
-<p>Available: {{pet.available}}</p>
+<p>Name: {{this.pet.name}}</p>
+<p>Breed: {{this.pet.breed}}</p>
+<p>Age: {{this.pet.age}}</p>
+<p>Description: {{this.pet.description}}</p>
+<p>Available: {{this.pet.available}}</p>
 
 {{!--
 <form action="/pets/{{pet.id}}/success" method="POST">
@@ -17,7 +17,7 @@
 </form>--}}
 
 {{!-- ORIGINAL: "/pets/{{pet.id}}/success" then "/host/{{pet.id}}/host"--}}
-<form action="/host/{{pet.id}}/success" method="POST">
+<form action="/host/{{pet._id}}/success" method="POST">
   <label for="confirm">I confirm I want to host this pet:</label>
   <button type="submit">Confirm</button>
 </form>

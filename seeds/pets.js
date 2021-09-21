@@ -12,7 +12,7 @@ const pets = [
     photoUrl: "https://i.ibb.co/jHVqkVd/IMG-4614-copy.jpg",
     description:
       "Two sisters that love pets and attention. Cocoa is a shy and reserved lady, but gets along famously with her energetic, social sister. Both are always up for vitamin C, romaine lettuce, and morning jogs around their cage. Looking for a loving owner that will give them plenty of attention and care.",
-    status: "Available",
+    available: true,
   },
 
   {
@@ -23,7 +23,7 @@ const pets = [
       "https://i.ibb.co/4P9ZWcF/a-pair-of-guinea-pigs-20851283776603-OPlo.jpg",
     description:
       "Brassy and Marshmallow are the best of friends. Both are social hyperactive teenagers that thrive on attention and bananas. Brassy can be a little dominant and bossy, with Marshallow being a bit more timid, but they always solve their problems within minutes. Looking for an owner that will shower them with love and attention.",
-    status: "Available",
+    available: true,
   },
 ];
 

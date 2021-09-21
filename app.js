@@ -43,6 +43,17 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 //hbs.registerPartials(path.join(__dirname, "/views/partials"));
 //app.use(express.static(path.join(__dirname, "/public")));
 
+// middleware for hbs locals variables to be updated when server restarts
+app.use((req, res, next) => {
+  if (req.session.loggedInUser) {
+    req.app.locals.isLoggedIn = true;
+  } 
+  if (req.session.loggedInUser?.isAdmin) {
+    req.app.locals.isAdmin = true;
+  }
+  next()
+})
+
 // 👇 Start handling routes here
 const index = require("./routes/index");
 app.use("/", index);
