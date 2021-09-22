@@ -11,15 +11,17 @@
     <div class="hero-text">
         <h1 style="font-size:50px">HOST A PET</h1>
         <h3>Welcome to Host a Pet</h3>
-<form id="pet-button" action="/pets" method="POST">
-    <button type="submit">PETS</button>
-<a href="/auth/signup">
-    <p align="center">SIGN UP
-</a>
+        <br>
 
-<div class="btn-group">
+{{!--NATASHA SEPT. 22: Messing around with buttons. Feel free to edit/fix--}}
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group mr-2" role="group" aria-label="First group">
     <a href="/pets" class="btn btn-primary">PETS</a>
-    <a href="/auth/signup" class="btn btn-default">SIGN UP</a>
+    </div>
+    <div class="btn-group mr-2" role="group" aria-label="Second group">
+    <a href="/auth/signup" class="btn btn-primary">SIGN UP</a>
+    </div>
 </div>
 
     </div>

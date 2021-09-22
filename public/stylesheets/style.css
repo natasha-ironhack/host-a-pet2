@@ -8,6 +8,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+/* NATASHA SEPT. 22: Added background to mess around. Feel free to edit/change*/
 .hero-image {
   background-image: url("../images/hamster-guineapig.jpg"); /* The image used */
   background-color: #cccccc; /* Used if the image is unavailable */
@@ -97,7 +98,6 @@ h1 {
 }
 
 .row {
-  display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -107,9 +107,7 @@ h1 {
 
 .card {
   position: relative;
-  /* display: -ms-flexbox; */
   display: flex;
-  /* -ms-flex-direction: column; */
   flex-direction: column;
   min-width: 300px;
   word-wrap: break-word;
@@ -128,6 +126,17 @@ footer {
 .container {
   width: 100%;
   padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* NATASHA: button group added sept. 22nd. Feel free to edit/change */
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 30px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
