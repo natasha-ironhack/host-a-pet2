@@ -12,6 +12,7 @@ body {
 .hero-image {
   background-image: url("../images/hamster-guineapig.jpg"); /* The image used */
   background-color: #cccccc; /* Used if the image is unavailable */
+  opacity: 0.75;
   height: 500px; /* You must set a specified height */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -97,6 +98,7 @@ h1 {
   text-align: center;
 }
 
+
 .row {
   display: flex;
   -ms-flex-wrap: wrap;
@@ -104,6 +106,7 @@ h1 {
   margin-right: -15px;
   margin-left: -15px;
 }
+
 
 .card {
   position: relative;
@@ -117,6 +120,7 @@ h1 {
   border-radius: 0.25rem;
   max-width: 32%;
 }
+
 
 footer {
   background-color: #383838;
@@ -140,4 +144,20 @@ footer {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }

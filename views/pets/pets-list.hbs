@@ -5,6 +5,7 @@
   <a href="/pets/create">Create a pet!</a>
 {{/if}}
 
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Search Pets</a>
@@ -56,6 +57,30 @@
     </div>
   </div>
 </nav>
+
+{{!--NATASHA: method attempted Sept. 22
+<form action="/" method="GET">
+  <div class="row">
+    <div class="col-6 form-group">
+      <label for="type">Select Breed</label>
+      <select name="type" class="form-control" id="type-select">
+        <option value=""> - ALL - </option>
+        <option value="hamster">Hamster</option>
+        <option value="guineapig">Guinea Pig</option>
+        <option value="gerbil">Gerbil</option>
+        <option value="mouse">Mice</option>
+        <option value="rat">Rats</option>
+      </select>
+    </div>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <button type="submit" class="btn cta-top btn-block" id="submitFilter">Search</button>
+    </div>
+  </div>
+</form>
+--}}
 
 {{#each pets}}
 
