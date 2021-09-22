@@ -33,7 +33,7 @@ h1 {
   text-align: center;
 }
 
-#center {
+.center {
   display: flex;
   width: 50vw;
   height: 50vh;
@@ -41,10 +41,14 @@ h1 {
   justify-content: center;
   font-size: 14px;
   text-align: center;
-  padding: 30px;
+  padding: 10px;
   line-height: 1.75;
-  margin: 40px;
+  margin: 50px auto 50px;
   border-width: 50px;
+}
+
+.about-pp {
+  text-indent: 50px;
 }
 
 .navbar {
@@ -58,6 +62,16 @@ h1 {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
 }
 
 .opening-time {
