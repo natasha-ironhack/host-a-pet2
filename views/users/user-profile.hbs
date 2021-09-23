@@ -14,9 +14,14 @@
   <p>You're still not logged in, sorry!</p>
 {{/if}}
 
-{{!--NATASHA: Sept. 22 Just added a little text for now, feel free to edit--}}
+{{!NATASHA: Sept. 22 Just added a little text for now, feel free to edit}}
 {{#each hostsFromUserInfo}}
-  Here is the pet you reserved: {{this.pet.name}}
+  <h3> Here is the pet you reserved: {{this.pet.name}}</h3>
+  <p>{{this.pet.photoUrl}}</p>
   <br />
-Date of reservation: {{this.startDate}}
+  <p>{{this.pet.breed}}</p>
+  <p>{{this.pet.description}}</p>
+  <br />
+  Date of reservation:
+  {{this.startDate}}
 {{/each}}

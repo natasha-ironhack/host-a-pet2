@@ -1,36 +1,37 @@
 <div>
-    <h2>Sign Up To See More</h2>
+  <h2 class="h2">Sign Up To See More</h2>
+  <br />
 
-    <form action="/auth/signup" method="POST">
-    {{!--enctype="multipart/form-data"--}}
-    
+  <form action="/auth/signup" method="POST">
+    {{!enctype="multipart/form-data"}}
+
     <label for="username">Username:</label>
-    <input type="text" name="username" >
-    <br>
+    <input type="text" name="username" />
+    <br />
 
     <label for="email">Email:</label>
-    <input type="email" name="email" autocomplete="off">
-    {{!-- can do type="text". type="email" though just insures it's an email w/ @-
-    and for required=true, if we try to send info without email, it'll give an error--}}
-    <br>
+    <input type="email" name="email" autocomplete="off" />
+    {{! can do type="text". type="email" though just insures it's an email w/ @-
+    and for required=true, if we try to send info without email, it'll give an error}}
+    <br />
 
     <label for="password">Password:</label>
-    <input type="password" name="password" >
-    {{!-- can do type="text". type="password" though hides the letters in the text field--}}
-    <br>
+    <input type="password" name="password" />
+    {{! can do type="text". type="password" though hides the letters in the text field}}
+    <br />
 
-    {{!--<label for="imageUrl">Profile Picture:</label>
-    <input type="file" name="imageUrl"/>--}}
+    {{!<label for="imageUrl">Profile Picture:</label>
+    <input type="file" name="imageUrl"/>}}
 
     <button type="submit">Submit</button>
 
-    </form>
+  </form>
 
-    {{!-- helps display error message in auth.routes.js. the red will display if you take out
-    the required = true in all input tages above. but the other method looks neater, not this--}}
-    <p style="color: blue">{{errorMessage}}</p>
+  {{! helps display error message in auth.routes.js. the red will display if you take out
+    the required = true in all input tages above. but the other method looks neater, not this}}
+  <p style="color: blue">{{errorMessage}}</p>
 
-    {{#if errorMessage}}
+  {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
-    {{/if}}
+  {{/if}}
 </div>
