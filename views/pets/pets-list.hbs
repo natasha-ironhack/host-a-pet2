@@ -6,6 +6,44 @@
 {{/if}}
 
 
+
+<div class="container2" style="display: block;" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="row d-flex justify-content-center">
+    {{!-- <div class="col-md-10" > --}}
+      {{!-- <div class="card p-3 py-4" > --}}
+        {{!-- <div class="row g-3 mt-2"> --}}
+          <div class="col-md-3">
+            <div class="dropdown" role="group" aria-label="First group"> <button class="btn btn-secondary dropdown-toggle" type="button"
+                id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"> Breed </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="/pets/All">All</a></li>
+                <li><a class="dropdown-item" href="/pets/Guinea-Pig">Guinea Pig</a></li>
+                <li><a class="dropdown-item" href="/pets/Hamster">Hamster</a></li>
+                <li><a class="dropdown-item" href="/pets/Gerbil">Gerbil</a></li>
+                <li><a class="dropdown-item" href="/pets/Rat">Rat</a></li>
+                <li><a class="dropdown-item" href="/pets/Mouse">Mouse</a></li>
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3" role="group" aria-label="Second group"> <button class="btn btn-secondary btn-block">Search By Breed</button> </div>
+        {{!-- </div> --}}
+      {{!-- </div> --}}
+    {{!-- </div> --}}
+  </div>
+</div>
+
+{{!-- <div class="btn-toolbar" style="display: block;" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+    <a href="/pets" class="btn btn-primary">SEE THE PETS</a>
+  </div>
+  <div class="btn-group mr-2" role="group" aria-label="Second group">
+    <a href="/auth/signup" class="btn btn-primary">SIGN UP</a>
+  </div>
+</div> --}}
+
+
+{{!--
 <nav class="navbar">
 <div class="container-fluid">
     <a class="navbar-brand" href="#">Search</a>
@@ -36,6 +74,7 @@
     </div>
   </div>
 </nav>
+--}}
 
 {{!--NATASHA: method attempted Sept. 22
 <form action="/" method="GET">
@@ -61,6 +100,9 @@
 </form>
 --}}
 
+<div class="pet-container">
+
+
 {{#each pets}}
 
   {{! @index, @key, @first (first iteration of loop), @last}}
@@ -82,7 +124,7 @@
 <div class="row">
   <div class="col-s-12 col-md-6 text-center">
     <div class="card result-card mt-3" style="width: 400px;">
-      <img src="{{this.photoUrl}}
+      <img src="{{this.photoUrl}}"
         class="card-img-top backup mt-3" alt="{{this.name}} photo">
       <h5 class="card-title mt-3">Name: {{this.name}}</h5>
       <p class="card-text mt-3 pl-2 pr-2">Breed: {{this.breed}}</p>
@@ -140,3 +182,4 @@
 </div> --}}
 
 {{/each}}
+</div>

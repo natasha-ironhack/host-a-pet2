@@ -1,9 +1,9 @@
 {{! NATASHA: <br> added sept. 19 }}
-
+<div class="user-profile">
 {{#if user}}
   <br />
   <h2>Welcome, {{user.username}}!</h2>
-  <p>Here's your profile page!</p>
+  {{!--<p>Here's your profile page!</p>--}}
 
   {{!Natasha: Sept. 19, commented out button for now:
   <button>
@@ -16,12 +16,18 @@
 
 {{!NATASHA: Sept. 22 Just added a little text for now, feel free to edit}}
 {{#each hostsFromUserInfo}}
-  <h3> Here is the pet you reserved: {{this.pet.name}}</h3>
-  <p>{{this.pet.photoUrl}}</p>
+<br />
+  <h2> Here is the pet you reserved: </h2>
+  <h5>Name: {{this.pet.name}}</h5>
   <br />
-  <p>{{this.pet.breed}}</p>
-  <p>{{this.pet.description}}</p>
+  <img src="{{this.pet.photoUrl}}" alt="{{this.pet.photoUrl}} photo">
   <br />
-  Date of reservation:
-  {{this.startDate}}
+  <br />
+  <p>Breed: {{this.pet.breed}}</p>
+  <p>Description: {{this.pet.description}}</p>
+  <br />
+  <p>Date of reservation: {{this.startDate}} </p>
+  <br />
 {{/each}}
+<br />
+</div>

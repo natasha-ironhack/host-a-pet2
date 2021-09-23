@@ -4,6 +4,7 @@ const { isAdmin } = require("../middlewares/auth.middlewares");
 
 const fileUploader = require("../middlewares/cloudinary.config");
 
+//need pets route again
 router.get("/", (req, res, next) => {
   Pet.find()
     .then((pets) => {
@@ -102,23 +103,23 @@ router.get("/:id/host", (req, res) => {
 
 //NATASHA: Added success route Sept. 17th
 /*
-router.post("/:id/success", (req, res) => {
-  const { id } = req.params;
-  Pet.findById(id)
-    .then((pet) => {
-      res.render("host/success", { pet });
-    })
-    .catch((err) => {
-      console.log(err);
+    router.post("/:id/success", (req, res) => {
+      const { id } = req.params;
+      Pet.findById(id)
+      .then((pet) => {
+        res.render("host/success", { pet });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     });
-});
-*/
+    */
 
 /*
- when button clicked will need to have a route and pass as a param the ID of the pet. can say reserve/:id
-inside the route will need to:
-create the reservation object
-the reservation will have the pet id and user id
+   when button clicked will need to have a route and pass as a param the ID of the pet. can say reserve/:id
+   inside the route will need to:
+   create the reservation object
+   the reservation will have the pet id and user id
 then need to go into pet .model and change that pet to be not available
 */
 
@@ -130,6 +131,34 @@ router.post("/:id/delete", isAdmin, (req, res) => {
     })
     .catch((err) => {
       console.log(err);
+    });
+});
+
+// create route "/" that finds all and shows all
+
+router.get("/:breed", (req, res, next) => {
+  const { breed } = req.params;
+  console.log(breed); // => "Guinea-Pig"
+
+  let cleanBreed = "";
+  for (let char of breed) {
+    if (char === "-") {
+      cleanBreed += " ";
+    } else {
+      cleanBreed += char;
+    }
+  }
+
+  // const cleanBreed = breed.replace("-", " ")
+  // "Guinea Pig"
+
+  Pet.find({ breed: cleanBreed })
+    .then((pets) => {
+      //console.log("All the pets:", pets);
+      res.render("pets/pets-list", { pets });
+    })
+    .catch((err) => {
+      console.log("Error listing all pets", err);
     });
 });
 

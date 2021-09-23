@@ -7,7 +7,10 @@ const userSchema = new Schema({
   // unique: true -> Ideally, should be unique,
   //but its up to you
   name: String,
-  breed: String,
+  breed: {
+    type: String,
+    enum: ["Guinea Pig", "Hamster", "Rat", "Gerbil", "Mouse"]
+  },
   age: Number,
   photoUrl: String,
   description: String,
