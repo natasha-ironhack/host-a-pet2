@@ -3,7 +3,6 @@ const Pet = require("../models/Pets.model");
 
 require("../db");
 
-//added another pet as a test
 const pets = [
   {
     name: "Cocoa (calico) and Pippy (beige)",
@@ -47,7 +46,7 @@ const pets = [
   },
   {
     name: "Mas and Menos",
-    breed: "Gerbils",
+    breed: "Gerbil",
     age: 0.5,
     photoUrl: "https://i.ibb.co/fx9xPfj/Mongolische-Wuestenrennmaus.jpg",
     description:
@@ -56,7 +55,7 @@ const pets = [
   },
   {
     name: "Mince and Chopper",
-    breed: "Gerbils",
+    breed: "Gerbil",
     age: 2,
     photoUrl:
       "https://i.ibb.co/gZWg5hC/Screen-Shot-2021-09-14-at-7-00-05-PM.pngg",
@@ -81,6 +80,34 @@ const pets = [
     photoUrl: "https://i.ibb.co/cFw1C7h/download.jpg",
     description:
       "Herbert is an elderly gentleman who's looking for a nice retirement home. He's not always had company so he would do well with other rats or only humans who can give him a lot of attention. He Likes to cuddle and snuggle up alongside and watch TV.",
+    available: true,
+  },
+  {
+    name: "Onyx and Lady",
+    breed: "Gerbil",
+    age: 1,
+    photoUrl: "https://i.ibb.co/0C4XZ9H/9a1e7836d5ff45572c80ec8ace37aa2c.jpg",
+    description:
+      "Onyx and Lady are sisters that love pets and rubs from their owner. When they’re not running around their cage, they can be seen chatting with each other over an afternoon fruit salad. Looking for an owner that will shower them with love and affection.",
+    available: false,
+  },
+  {
+    name: "Patrick and Tom",
+    breed: "Guinea Pig",
+    age: 3,
+    photoUrl: "https://i.ibb.co/QH4tkk4/Get-To-Know-Guinea-Pigs.jpg",
+    Description:
+      "Patrick and Tom are brothers that get along very well with each other. Both are quite reserved in nature, but love a good head rub every now and then. Their favorite snacks are romaine lettuce and cherry tomatoes. Looking for a careful, mature owner.",
+    available: true,
+  },
+  {
+    name: "Buttercup",
+    breed: "Hamster",
+    age: 1,
+    photoUrl:
+      "https://i.ibb.co/GFbSHWm/Screen-Shot-2021-09-14-at-6-49-40-PM.png",
+    Description:
+      "Buttercup is a sweet, lovely hamster that is looking for a new owner. She likes sunflower seeds, pets from her owner, and exercise.",
     available: true,
   },
 ];

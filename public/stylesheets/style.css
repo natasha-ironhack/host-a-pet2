@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  padding: 5px;
+  padding: 1px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -106,7 +106,8 @@ h2 {
   content: "";
   background: no-repeat center center;
   background-size: 100% 100%;
-  background-color: #00b7ff;
+  /* background-color: #00b7ff; */
+  background-image: url("../images/navbar-logo.png")
 }
 
 
@@ -122,6 +123,7 @@ h2 {
 .row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-right: -15px;
   margin-left: -15px;
 }

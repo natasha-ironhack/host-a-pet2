@@ -1,17 +1,11 @@
-<!--NATASHA: further changes made Sept. 19th. <br> and attempt to fix card format. Sept. 15 changes coded out original code below-->
 <br>
 <h1 class="pets-title">Welcome to our Pets Page</h1>
 {{#if isAdmin}}
   <a href="/pets/create">Create a pet!</a>
 {{/if}}
 
-
-
 <div class="container2" style="display: block;" role="toolbar" aria-label="Toolbar with button groups">
   <div class="row d-flex justify-content-center">
-    {{!-- <div class="col-md-10" > --}}
-      {{!-- <div class="card p-3 py-4" > --}}
-        {{!-- <div class="row g-3 mt-2"> --}}
           <div class="col-md-3">
             <div class="dropdown" role="group" aria-label="First group"> <button class="btn btn-secondary dropdown-toggle" type="button"
                 id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"> Breed </button>
@@ -27,78 +21,9 @@
             </div>
           </div>
           <div class="col-md-3" role="group" aria-label="Second group"> <button class="btn btn-secondary btn-block">Search By Breed</button> </div>
-        {{!-- </div> --}}
-      {{!-- </div> --}}
-    {{!-- </div> --}}
+
   </div>
 </div>
-
-{{!-- <div class="btn-toolbar" style="display: block;" role="toolbar" aria-label="Toolbar with button groups">
-  <div class="btn-group mr-2" role="group" aria-label="First group">
-    <a href="/pets" class="btn btn-primary">SEE THE PETS</a>
-  </div>
-  <div class="btn-group mr-2" role="group" aria-label="Second group">
-    <a href="/auth/signup" class="btn btn-primary">SIGN UP</a>
-  </div>
-</div> --}}
-
-
-{{!--
-<nav class="navbar">
-<div class="container-fluid">
-    <a class="navbar-brand" href="#">Search</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Breed
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
---}}
-
-{{!--NATASHA: method attempted Sept. 22
-<form action="/" method="GET">
-  <div class="row">
-    <div class="col-6 form-group">
-      <label for="type">Select Breed</label>
-      <select name="type" class="form-control" id="type-select">
-        <option value=""> - ALL - </option>
-        <option value="hamster">Hamster</option>
-        <option value="guineapig">Guinea Pig</option>
-        <option value="gerbil">Gerbil</option>
-        <option value="mouse">Mice</option>
-        <option value="rat">Rats</option>
-      </select>
-    </div>
-    <hr>
-  </div>
-  <div class="row">
-    <div class="col-12 text-center">
-      <button type="submit" class="btn cta-top btn-block" id="submitFilter">Search</button>
-    </div>
-  </div>
-</form>
---}}
 
 <div class="pet-container">
 
@@ -106,80 +31,23 @@
 {{#each pets}}
 
   {{! @index, @key, @first (first iteration of loop), @last}}
-  {{!--<img src="{{this.image_url}}"--}}
-
-  {{!--{{> pets-listPartials this}}---}}
-
-  {{!Method above not working for now. Commented out for now}}
-
-  {{!<div class="row justify-content-around">
-    <div class="col-4">
-        One of two columns
-    </div>
-    <div class="col-4">
-        One of two columns
-    </div>
-</div>}}
+  
 
 <div class="row">
   <div class="col-s-12 col-md-6 text-center">
     <div class="card result-card mt-3" style="width: 400px;">
       <img src="{{this.photoUrl}}"
         class="card-img-top backup mt-3" alt="{{this.name}} photo">
-      <h5 class="card-title mt-3">Name: {{this.name}}</h5>
+      <h5 class="card-title mt-3">{{this.name}}</h5>
       <p class="card-text mt-3 pl-2 pr-2">Breed: {{this.breed}}</p>
       <form action="/pets/{{this._id}}" method="POST" name="viewMore"
         id="5e4e6bcf28f4a7001700432a">
         <button type="submit" name="viewMore" class="btn cta-bottom mt-3 mb-3" id="5e4e6bcf28f4a7001700432a">View More</button>
       </form>
       <br>
-      <!-- <a href="#" class="card-link">Add to favorites (soon)</a> -->
     </div>
   </div>
 </div>
-
-{{!-- NATASHA: BELOW IS THE CODE BEFORE SUNDAY SEPT. 19th CHANGES 
-<br>
-  <div class="container-md">
-    {{!apply styles to card to make this a little bit more thin}}
-    <div class="col">
-      <div class="card">
-        <img
-          src="{{this.photoUrl}}"
-          class="card-img-top"
-          alt="{{this.name}} photo"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Name: {{this.name}}</h5>
-          <p class="card-text">Breed: {{this.breed}}</p>
-          <a href="/pets/{{this._id}}">View More</a>
-          {{#if isAdmin}}
-            <a href="/pets/{{this._id}}/edit"> Edit</a>
-            <form action="/pets/{{this._id}}/delete" method="post">
-              <button type="submit">Delete</button>
-            </form>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  --}}
-
-  {{!NATASHA: ORIGINAL CODE BEFORE SEPT. 15 BELOW HERE. Only change made is adding "Name:" etc. }}
-  {{!-- <div>
-    <h3>Name: {{this.name}}</h3>
-    <p>Breed: {{this.breed}}</p>
-    <p>Age: {{this.age}}</p>
-    <img src="{{this.photoUrl}}" alt="{{this.name}}"/>
-    <p>Description: {{this.description}}</p>
-    <p>Status: {{this.status}}</p>
-    <a href="/pets/{{this._id}}">View More</a>
-    <a href="/pets/{{this._id}}/edit">Edit</a>
-    <form action='/pets/{{this._id}}/delete' method='post'>
-        <button type='submit'>Delete</button>
-    </form>
-</div> --}}
 
 {{/each}}
 </div>
