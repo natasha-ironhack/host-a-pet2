@@ -4,7 +4,6 @@ const { isAdmin } = require("../middlewares/auth.middlewares");
 
 const fileUploader = require("../middlewares/cloudinary.config");
 
-//need pets route again
 router.get("/", (req, res, next) => {
   Pet.find()
     .then((pets) => {
@@ -40,7 +39,6 @@ router.post("/create", isAdmin, fileUploader.single("photoUrl"), (req, res) => {
     });
 });
 
-//changed from .get to .post sept. 19
 router.post("/:id", (req, res, next) => {
   const { id } = req.params;
   Pet.findById(id)
@@ -80,7 +78,8 @@ router.post(
     )
       .then((pet) => {
         console.log("Here's the pet you edited:", pet);
-        res.redirect(`/pets/${pet._id}`);
+        res.redirect("/pets");
+        //!! (`/pets/${pets._id} not working rn, switched to pets view for now)
       })
       .catch((err) => {
         console.log(err);
@@ -88,7 +87,6 @@ router.post(
   }
 );
 
-//NATASHA: Host route added Sept. 17
 router.get("/:id/host", (req, res) => {
   const { id } = req.params;
   Pet.findById(id)
@@ -101,28 +99,6 @@ router.get("/:id/host", (req, res) => {
     });
 });
 
-//NATASHA: Added success route Sept. 17th
-/*
-    router.post("/:id/success", (req, res) => {
-      const { id } = req.params;
-      Pet.findById(id)
-      .then((pet) => {
-        res.render("host/success", { pet });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    });
-    */
-
-/*
-   when button clicked will need to have a route and pass as a param the ID of the pet. can say reserve/:id
-   inside the route will need to:
-   create the reservation object
-   the reservation will have the pet id and user id
-then need to go into pet .model and change that pet to be not available
-*/
-
 router.post("/:id/delete", isAdmin, (req, res) => {
   const { id } = req.params;
   Pet.findByIdAndDelete(id)
@@ -133,8 +109,6 @@ router.post("/:id/delete", isAdmin, (req, res) => {
       console.log(err);
     });
 });
-
-// create route "/" that finds all and shows all
 
 router.get("/:breed", (req, res, next) => {
   const { breed } = req.params;

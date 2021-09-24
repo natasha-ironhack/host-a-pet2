@@ -30,13 +30,13 @@ User profile:
 Favorite pets list
 (reservations)
 
-(Geo Location:    DONE
+(Geo Location: DONE
 Maybe include a map for location of the farm / company)
 
-Homepage:      SEMI-DONE
+Homepage: SEMI-DONE
 (Filter part on the search (leads to pets page))
 
-Success page:      
+Success page:  
 button back to homepage
 
 authenticator for users
@@ -57,12 +57,12 @@ body:
 email
 password
 
-POST /auth/logout
+POST /auth/logout DONE
 body: (empty)
 
 GET /auth/user-profile (:id?) DONE (need view)
 renders the profile.hbs
-includes favorites section, reservation section, and details section NOT DONE
+includes reservation section DONE
 
 GET /about DONE
 renders the about.hbs
@@ -117,15 +117,14 @@ Hosted By: (create relation to user model)
 
 -- LINKS --
 Trello
-Link to your trello board or picture of your physical board
+(Link to your trello board or picture of your physical board)
 
 Git
 Repository Link:
 https://github.com/natasha-ironhack/host-a-pet
 
 Deploy Link:
+https://host-a-pet.herokuapp.com/
 
 Slides
 (The url to your presentation slides)
-
-Slides Link

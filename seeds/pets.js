@@ -39,7 +39,6 @@ const pets = [
     age: 0.5,
     photoUrl:
       "https://i.ibb.co/SKBnFSD/Screen-Shot-2021-09-14-at-6-49-10-PM.png",
-
     description:
       "Ginnerva is a teenager that likes to run and explore her surroundings. While she does not mind the occasional pet from her owner, she appreciates them much more when there are carrots involved. Looking for an owner that can keep up with her energy and demands.",
     available: true,
@@ -96,7 +95,7 @@ const pets = [
     breed: "Guinea Pig",
     age: 3,
     photoUrl: "https://i.ibb.co/QH4tkk4/Get-To-Know-Guinea-Pigs.jpg",
-    Description:
+    description:
       "Patrick and Tom are brothers that get along very well with each other. Both are quite reserved in nature, but love a good head rub every now and then. Their favorite snacks are romaine lettuce and cherry tomatoes. Looking for a careful, mature owner.",
     available: true,
   },
@@ -106,7 +105,7 @@ const pets = [
     age: 1,
     photoUrl:
       "https://i.ibb.co/GFbSHWm/Screen-Shot-2021-09-14-at-6-49-40-PM.png",
-    Description:
+    description:
       "Buttercup is a sweet, lovely hamster that is looking for a new owner. She likes sunflower seeds, pets from her owner, and exercise.",
     available: true,
   },
