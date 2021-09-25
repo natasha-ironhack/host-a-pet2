@@ -109,6 +109,33 @@ const pets = [
       "Buttercup is a sweet, lovely hamster that is looking for a new owner. She likes sunflower seeds, pets from her owner, and exercise.",
     available: true,
   },
+  {
+    name: "Sarah and June",
+    breed: "Mouse",
+    age: 1,
+    photoUrl: "https://i.ibb.co/bKbL2gw/download-1.jpg",
+    description:
+      "These two are a funny pair who love to snuggle together, run loops around their cage and eat as much apple, their favourite, as possible. They don't like males so are best kept separate",
+    available: true,
+  },
+  {
+    name: "Bib, Bub, and Bob",
+    breed: "Rat",
+    age: 1,
+    photoUrl: "https://i.ibb.co/NyMxxby/download-2.jpg",
+    description:
+      "These three are very strongly bonded together but are happy to join any other rats for a big pile on in their hammock. They love tickles and carrots but don't feed them grapes, especially after midnight - they do go a bit loopy",
+    available: true,
+  },
+  {
+    name: "The Three Mouseketeers",
+    breed: "Mouse",
+    age: 0.5,
+    photoUrl: "https://i.ibb.co/QNJ9M2H/Mice-hantavirus.webp",
+    description:
+      "These three are always up to something, whether it's chewing on something they shouldn't or doing death-defying stunts from the top of their cage, they're always up to something. Always.",
+    available: true,
+  },
 ];
 
 Pet.create(pets)
