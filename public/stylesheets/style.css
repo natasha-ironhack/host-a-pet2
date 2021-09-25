@@ -142,7 +142,7 @@ h2 {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 5px solid #123d10;
+  border: 1px solid #123d10;
   border-radius: 0.25rem;
   max-width: 32%;
 }
@@ -269,6 +269,13 @@ footer {
 }
 
 .signup-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.host-page {
   display: flex;
   justify-content: center;
   flex-direction: column;
