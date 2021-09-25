@@ -1,27 +1,27 @@
 {{#if isAdmin}}
 <div class="create-page">
   <h3>Create a Pet Listing</h3>
-
+<br>
   <!--/get only shows the view //POST method creates-->
   <form action="/pets/create" method="POST" enctype="multipart/form-data">
     <label for="name">Name</label>
     <input type="text" name="name" />
-
+<hr>
     <label for="breed">Breed</label>
     <input type="text" name="breed" />
-
+<hr>
     <label for="age">Age</label>
     <input type="number" name="age" />
-
+<hr>
     <label for="photoUrl">Photo</label>
     <input type="file" name="photoUrl" />
-
+<hr>
     <label for="description">Description</label>
     <input type="text" name="description" />
-
+<hr>
     <label for="available">Available</label>
     <input type="text" name="available" />
-
+<hr>
     <button type="submit">Create</button>
   </form>
 {{/if}}

@@ -12,13 +12,19 @@ body {
 
 /* NATASHA SEPT. 22: Added background to mess around. Feel free to edit/change*/
 .hero-image {
-  background-image: url("../images/hamster-guineapig.jpg"); /* The image used */
-  background-color: #cccccc; /* Used if the image is unavailable */
+  background-image: url("../images/hamster-guineapig.jpg");
+  /* The image used */
+  background-color: #cccccc;
+  /* Used if the image is unavailable */
   opacity: 0.75;
-  height: 500px; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  height: 500px;
+  /* You must set a specified height */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  /* Resize the background image to cover the entire container */
 }
 
 .hero-text {
@@ -136,7 +142,7 @@ h2 {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 5px solid #123d10;
   border-radius: 0.25rem;
   max-width: 32%;
 }
@@ -230,19 +236,41 @@ footer {
 }
 
 .details {
-  margin-left: 15px;
-  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px;
 }
 
 .edit-page {
-  margin-left: 10px;
-  margin-right: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+  margin: 10px;
 }
 
 .create-page {
-  margin-left: 10px;
-  margin-right: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+  margin: 10px;
 }
 
+.login-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 
-
+.signup-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

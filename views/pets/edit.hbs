@@ -1,7 +1,7 @@
 {{#if isAdmin}}
 <div class="edit-page">
   <h3>Edit Pet</h3>
-
+<br>
   <form
     action="/pets/{{pet.id}}/edit"
     method="POST"
@@ -9,22 +9,22 @@
   >
     <label for="name">Name:</label>
     <input type="text" name="title" value="{{pet.name}}" />
-
+<hr>
     <label for="breed">Breed:</label>
     <input type="text" name="breed" value="{{pet.breed}}" />
-
+<hr>
     <label for="age">Age:</label>
     <input type="number" name="age" value="{{pet.age}}" />
-
+<hr>
     <label for="photoUrl">Photo:</label>
     <input type="file" name="photoUrl" value="{{pet.photoUrl}}">
-
+<hr>
     <label for="description">Description:</label>
     <input type="text" name="description" value="{{pet.description}}" />
-
+<hr>
     <label for="available">Available:</label>
     <input type="text" name="available" value="{{pet.available}}" />
-
+<hr>
     <button type="submit">Submit</button>
   </form>
 {{/if}}
