@@ -1,7 +1,7 @@
 <br>
 <h1 class="pets-title">Welcome to our Pets Page</h1>
 {{#if isAdmin}}
-  <a href="/pets/create">Create a pet!</a>
+  <a class="create-link" href="/pets/create">Create a pet!</a>
 {{/if}}
 
 <div class="container2" style="display: block;" role="toolbar" aria-label="Toolbar with button groups">
@@ -42,7 +42,7 @@
       <p class="card-text mt-3 pl-2 pr-2">Breed: {{this.breed}}</p>
       <form action="/pets/{{this._id}}" method="POST" name="viewMore"
         id="5e4e6bcf28f4a7001700432a">
-        <button type="submit" name="viewMore" class="btn cta-bottom mt-3 mb-3" id="5e4e6bcf28f4a7001700432a">View More</button>
+        <button class="btn btn-info" type="submit" name="viewMore" class="btn cta-bottom mt-3 mb-3" id="5e4e6bcf28f4a7001700432a">View More</button>
       </form>
       <br>
     </div>
